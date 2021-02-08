@@ -6,5 +6,4 @@
     <div id="app">
         <posts-create></posts-create>
     </div>
-    <script src="{{ mix('js/app.js') }}"></script>
 @endsection

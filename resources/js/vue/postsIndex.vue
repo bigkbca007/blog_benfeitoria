@@ -1,16 +1,11 @@
 <template>
     <div>
         <!-- Filtros -->
-        <fieldset>
-            <div class="field has-addons">
-                <div class="control">
-                    <input v-model="filtro.titulo" class="input" type="text" placeholder="Filtrar por título">
-                </div>
-                <div class="control">
-                    <a @click="filtrar(1)" class="button is-info">
-                        Filtrar
-                    </a>
-                </div>
+        <div class="list-conatiner">
+
+            <div class="input-group mb-3">
+                <input v-model="filtro.titulo" type="text" class="form-control" placeholder="Recipient's username" aria-label="Filtrar por titulo" aria-describedby="button-addon2">
+                <button @click="filtrar(1)" class="btn btn-outline-success" type="button" id="button-addon2">Filtrar</button>
             </div>
 
             <div class="field has-addons">
@@ -25,32 +20,27 @@
 
                     </div>
                 </div>
-                <div class="control">
-                    <a @click="filtrar(2)" class="button is-info">
+                <div class="input-group mb-3">
+                    <button @click="filtrar(2)" class="btn btn-outline-success">
                         Filtrar
-                    </a>
+                    </button>
                 </div>
             </div>
 
-            <div class="field has-addons">
-                <div class="control">
-                    <input v-model="filtro.autor" class="input" type="text" placeholder="Filtrar por autor">
-                </div>
-                <div class="control">
-                    <a @click="filtrar(3)" class="button is-info">
-                        Filtrar
-                    </a>
-                </div>
+            <div class="input-group mb-3">
+                <input v-model="filtro.autor" type="text" class="form-control" placeholder="Filtrar por autor" aria-label="Filtrar por titulo" aria-describedby="button-addon2">
+                <button @click="filtrar(3)" class="btn btn-outline-success" type="button" id="button-addon2">Filtrar</button>
             </div>
 
-        </fieldset>
+        </div>
 
-        <h3>Posts - Index</h3>
-        <a href="/posts/add">Create</a>
-        <a href="/posts/5">Post 5</a>
-
+        <hr>
+        
         <!-- Lista de categorias -->
-        <post-itens-list :items="items" :remover="remover" />
+        <div class="list-conatiner">
+            <post-itens-list :items="items" :remover="remover" />
+        </div>
+            
     </div>
 </template>
 
@@ -120,6 +110,9 @@ export default {
 </script>
 
 // Style -----------------------------------------------------
-<style lang="stylus" scoped>
-
+<style scoped>
+.list-conatiner{
+    border: solid 1px #c6c6c6;
+    padding: 20px;
+}
 </style>

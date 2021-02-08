@@ -6,5 +6,5 @@
     <div id="app">
         <categories-create></categories-create>
     </div>
-    <script src="{{ mix('js/app.js') }}"></script>
+    
 @endsection

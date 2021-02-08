@@ -1,7 +1,7 @@
 <template>
     <div>
-        <span>{{ item.nome }}</span>
-        <button v-if="remover == 1" @click="removerCategoria()">
+        <strong>{{ item.nome }}</strong>
+        <button v-if="remover == 1" @click="removerCategoria()" class="btn btn-link" style="float:right">
             remover
         </button>
     </div>

@@ -19,7 +19,7 @@ export default {
     components: {
         categorieItem
     }
-} 
+}
 </script>
 
 <style scoped>

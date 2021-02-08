@@ -1,7 +1,56 @@
 <template>
     <div>
-        <fieldset>
+        <div class="list-container">
             <h3>Adicionar</h3>
+            <form>
+                <div class="mb-3">
+                    <label class="label">Categoria</label>
+                    <div class="control">
+                        <div class="select">
+                            <v-select
+                                :options="options_categorias"
+                                :reduce="nome => nome.id"
+                                label="nome"
+                                v-model="post.categoria_id"
+                            />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input v-model="post.titulo"  type="text" class="form-control" id="titulo"  placeholder="Título">
+                </div>
+
+                <div class="mb-3">
+                    <label class="label" for="img_post">Imagem do Post</label>
+                    <div class="file">
+
+                        <label class="file-label">
+                            <input
+                                class="file-input"
+                                type="file"
+                                @change="onFileSelected"                          
+                            >
+                            <span class="file-cta">
+                            <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                            </span><span class="file-label"></span></span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="conteudo" class="form-label">Conteúdo</label>
+                    <textarea v-model="post.conteudo" class="form-control" placeholder="Conteúdo"></textarea>
+                </div>
+
+                <a @click="postar" class="btn btn-primary">Postar</a>
+            </form>
+
+<!--
             <div class="field">
                 <label class="label" for="titulo">Título</label>
                 <div class="control">
@@ -32,26 +81,10 @@
                 </div>
 
             </div>
-
             <div class="field">
                 <label class="label" for="conteudo">Conteúdo</label>
                 <div class="control">
                     <textarea v-model="post.conteudo" class="textarea" placeholder="Textarea"></textarea>
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Categoria</label>
-                <div class="control">
-                    <div class="select">
-                        <v-select
-                            :options="options_categorias"
-                            :reduce="nome => nome.id"
-                            label="nome"
-                            v-model="post.categoria_id"
-                        />
-
-                    </div>
                 </div>
             </div>
     
@@ -60,13 +93,16 @@
                     <button @click="postar" class="button is-link">Postar</button>
                 </div>
             </div>
-        </fieldset>
+-->
+
+        </div>
 
         <hr>
 
-        <fieldset>
+        <div class="list-container">
             <h3>Deletar</h3>
             <div class="field has-addons">
+                <!--
                 <div class="control">
                     <input v-model="termos" class="input" type="text" placeholder="Digite os termos para a busca.">
                 </div>
@@ -75,11 +111,17 @@
                         Buscar
                     </a>
                 </div>
+                -->
+
+                <div class="input-group mb-3">
+                    <input v-model="termos" type="text" class="form-control" placeholder="Filtrar por nome" aria-label="Filtrar por titulo" aria-describedby="button-addon2">
+                    <button @click="buscar" class="btn btn-outline-success" type="button" id="button-addon2">Buscar</button>
+                </div>
                 
                 <!-- Lista de posts -->
                 <posts-itens-list :items="items" :remover="remover" v-on:recarregarLista="buscar"/>
             </div>
-        </fieldset>
+        </div>
 
     </div>
 </template>
@@ -158,6 +200,9 @@ export default {
 </script>
 
 // Style -----------------------------------------------------
-<style lang="stylus" scoped>
-
+<style scoped>
+.list-container{
+    border: solid 1px #c6c6c6;
+    padding: 20px;
+}
 </style>

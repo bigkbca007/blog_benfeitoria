@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="list-container">
         <div v-for="(item, index) in items" :key="index">
             <post-item 
                 :item="item"
@@ -8,7 +8,6 @@
                 v-on:listamudada="$emit('recarregarLista')"
             />
         </div>
-        
     </div>
 </template>
 
@@ -27,5 +26,6 @@ export default {
     background: #e6e6e6;
     padding: 5px;
     margin-top: 5px;
+    border: solid 1px #cccccc;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
     <div>
         <img :src="getImage(item.img_post)" class="img_post">
-        <span>{{ item.titulo }}</span>&nbsp;
-        <span v-if="remover == 0">{{ item.created_at }}</span>&nbsp;
-        <span v-if="remover == 0">{{ item.updated_at }}</span>&nbsp;
-        <button v-if="remover == 1" @click="removerPost()">
-            remover
-        </button>
-        <a :href="getLink(item.id)">Visualisar</a>
+        <strong>{{ item.titulo }}</strong>&nbsp;
+        <small v-if="remover == 0" class="text-info"><strong>Criado em: </strong>{{ item.created_at }}</small>&nbsp;
+        
+        <span style="float:right">
+            <a :href="getLink(item.id)" class="btn btn-link">Visualisar</a>
+            <a v-if="remover == 1" @click="removerPost()" class="btn btn-link text-danger">Remover</a>
+        </span>
     </div>
 </template>
 

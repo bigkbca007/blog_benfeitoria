@@ -1,9 +1,5 @@
 <template>
-    <div>
-        <h3>Categorias - Index</h3>
-        <a href="/categorias/add">Create</a>
-        <a href="/categorias/5">Categoria 5</a>
-        
+    <div class="list-container">
         <!-- Lista de categorias -->
         <categories-itens-list :items="items" :remover="remover" />
     </div>
@@ -41,6 +37,9 @@ export default {
 </script>
 
 // Style -----------------------------------------------------
-<style lang="stylus" scoped>
-
+<style scoped>
+.list-container{
+    border: solid 1px #c6c6c6;
+    padding: 20px;
+}
 </style>

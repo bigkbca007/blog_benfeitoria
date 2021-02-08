@@ -1,38 +1,34 @@
 <template>
     <div>
-        <fieldset>
+        <div class="list-container">
             <h3>Adicionar</h3>
-            <div class="field">
-                <label class="label" for="nome">Nome</label>
-                <div class="control">
-                    <input v-model="categoria.nome" class="input" type="text" id="nome" placeholder="Nome">
+            <hr>
+            <form>
+
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input v-model="categoria.nome" type="text" class="form-control" id="nome">
                 </div>
-            </div>
-            <div class="field is-grouped">
-                <div class="control">
-                    <button @click="cadastrar" class="button is-link">Cadastrar</button>
-                </div>
-            </div>
-        </fieldset>
+                <button @click="cadastrar" type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
 
         <hr>
 
-        <fieldset>
+        <div class="list-container">
             <h3>Deletar</h3>
-            <div class="field has-addons">
-                <div class="control">
-                    <input v-model="termos" class="input" type="text" placeholder="Digite os termos para a busca.">
+            <hr>
+            <div>
+                <div class="input-group mb-3">
+                    <input v-model="termos" type="text" class="form-control" placeholder="Filtrar por nome" aria-label="Filtrar por nome" aria-describedby="button-addon2">
+                    <button @click="buscar" class="btn btn-outline-success" type="button" id="button-addon2">Buscar</button>
                 </div>
-                <div class="control">
-                    <a @click="buscar" class="button is-info">
-                        Buscar
-                    </a>
-                </div>
-                
+
                 <!-- Lista de categorias -->
+                <hr>
                 <categories-itens-list :items="items" :remover="remover" v-on:recarregarLista="buscar"/>
             </div>
-        </fieldset>
+        </div>
         
     </div>
 </template>
@@ -86,6 +82,9 @@ export default {
 </script>
 
 // Style -----------------------------------------------------
-<style lang="stylus" scoped>
-
+<style scoped>
+.list-container{
+    border: solid 1px #c6c6c6;
+    padding: 20px;
+}
 </style>
